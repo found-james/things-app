@@ -1,0 +1,123 @@
+
+header 
+{
+    height: 130px;
+}
+
+#main-carousel 
+{
+    height: 320px;
+    background: #777;
+    color: white;
+}
+
+.carousel-item 
+{
+    float: none;
+}
+
+.container {
+    position: absolute;
+    bottom: 7%;
+    left: 0;
+    right: 0px;
+    border: 0;
+}
+
+#index-carousel > h1, 
+#index-carousel > p
+{
+    width: 45%;
+    border: none;
+}
+
+#wide-sec-one, 
+#wide-sec-two, 
+#wide-sec-three 
+{
+    height: 300px;
+    display: flex;
+}
+
+#wide-sec-one > div:nth-of-type(2), 
+#wide-sec-two > div:nth-of-type(1)
+{
+    width: 55%;
+    height: 100%;
+}
+
+#wide-sec-one > div:nth-of-type(1), 
+#wide-sec-two > div:nth-of-type(2)
+{
+    width: 45%;
+    height: 100%;
+}
+
+#wide-sec-one > div:nth-of-type(1),
+#wide-sec-two > div:nth-of-type(2) 
+{
+    background-color: #B2AC88;
+}
+
+#wide-sec-three > div, 
+footer > div 
+{
+    width: 33.33%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 135px;
+    align-items: center;
+}
+#wide-sec-two > div > h2, 
+#wide-sec-two > div > p
+{
+    width: 80%;
+    max-width: 250px;
+    position: relative;
+    top: 35px;
+    left: 50px;
+}
+
+#wide-sec-three > div > h2, 
+#wide-sec-three > div > p,
+footer > div > h2, 
+footer > div > h5, 
+footer > div > p
+{
+    width: 80%;
+    max-width: 180px;
+    position: relative;
+    top: 35px;
+    border: none;
+}
+
+footer > div > span {
+    display: flex;
+    position: relative;
+    top: 35px;
+    width: 70%;
+    max-width: 180px;
+    padding-top: 10px;
+
+}
+
+footer > div > span > input {
+    gap: 20px;
+    width: 70%;
+    color:#FFF5EE;
+}
+
+footer > div > span > button {
+    width: 30%;
+    padding: 0px;
+}
+
+
+
+footer {
+    background-color: #353935;
+    height: 400px;
+    display: flex;
+    color:#FFF5EE;
+}
