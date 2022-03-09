@@ -3,32 +3,40 @@ header
 {
     height: 130px;
 }
-
-#main-carousel 
+/* #my-carousel {
+    height: 320px;
+} */
+/* #main-carousel 
 {
     height: 320px;
     background: #777;
     color: white;
-}
+} */
 
 .carousel-item 
 {
+    height: 320px;
+    background: #777;
+    color: white;
     float: none;
 }
 
 .container {
     position: absolute;
-    bottom: 7%;
+    bottom: 15%;
     left: 0;
     right: 0px;
     border: 0;
 }
 
-#index-carousel > h1, 
-#index-carousel > p
+#index-carousel-s1 > h1, 
+#index-carousel-s1 > p,
+#index-carousel-s2 > h1, 
+#index-carousel-s2 > p
 {
-    width: 45%;
-    border: none;
+    width: 70%;
+    position: relative;
+    left: 15%;
 }
 
 #wide-sec-one, 

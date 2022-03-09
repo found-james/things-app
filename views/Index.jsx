@@ -5,16 +5,43 @@ class Index extends React.Component {
     render() {
         return(
             <Default>
-                <section id="main-carousel" className="carousel-item active">
-                    <div id="index-carousel" className="container">
-                        <h1>Slide one</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                    </div>
+                <section id="myCarousel" className="carousel slide" data-ride="carousel">
+                    <ol className="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                    </ol>
+                    <article className="carousel-inner">
+                        <section id="main-carousel-s1" className="carousel-item active">
+                            <div id="index-carousel-s1" className="container">
+                                <h1>Slide one</h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                                   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                                   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                            </div>
+                        </section>
+                        <section id="main-carousel-s2" className="carousel-item">
+                            <div id="index-carousel-s2" className="container">
+                                <h1>Slide two</h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                                   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                                   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                            </div>
+                        </section>
+                    </article>
+                    <a href="#myCarousel" className="carousel-control-prev" role="button" data-slide="prev">
+                        <span className="sr-only">Previous</span>
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </a>
+                    <a href="#myCarousel" className="carousel-control-next" role="button" data-slide="next">
+                        <span className="sr-only">Next</span>
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    </a>
                 </section>
                 <section id="wide-sec-one">
                     <div>
