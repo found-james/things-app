@@ -33,13 +33,12 @@ class Default extends React.Component {
                         href="/css/app.css" 
                     />
 
-
                 {/* Jquery */}
-                    {/* <script
+                    <script
                     src="https://code.jquery.com/jquery-3.6.0.min.js"
                     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
                     crossOrigin="anonymous"
-                    ></script> */}
+                    ></script>
                     {/* OUR CSS AND JS */}
                     {/* <script src="/app.js" defer></script> */}
                 </head>

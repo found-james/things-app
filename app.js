@@ -22,6 +22,9 @@ app.get('/store/show', (req, res) => {
     res.render("Show");
 });
 
+app.get('/store/gallery', (req, res) => {
+    res.render("Gallery");
+});
 
 const DATABASE_URL = process.env.DATABASE_URL;
 const CONFIG = {
