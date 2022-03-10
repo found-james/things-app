@@ -14,16 +14,24 @@ app.use(express.static('public'));
 
 //Index
 app.get('/store', (req, res) => {
-    res.render("Index");
+    res.render("user/landing");
 });
 
 //Show
 app.get('/store/show', (req, res) => {
-    res.render("Show");
+    res.render("user/show");
 });
 
 app.get('/store/gallery', (req, res) => {
-    res.render("Gallery");
+    res.render("admin/gallery");
+});
+
+app.get('/store/admin', (req, res) => {
+    res.render("admin/login");
+});
+
+app.get('/store/new', (req, res) => {
+    res.render("admin/new");
 });
 
 const DATABASE_URL = process.env.DATABASE_URL;

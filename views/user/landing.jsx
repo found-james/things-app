@@ -1,7 +1,7 @@
 const React = require('react');
-const Default = require('./Default.jsx');
+const Default = require('./default.jsx');
 
-class Index extends React.Component {
+class Landing extends React.Component {
     render() {
         return(
             <Default>
@@ -96,4 +96,4 @@ class Index extends React.Component {
         )
     }
 }
-module.exports = Index;
+module.exports = Landing;
