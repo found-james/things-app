@@ -7,7 +7,7 @@ header
 
 main 
 {
-    height: 600px;
+    height: 800px;
    
 }
 
@@ -41,4 +41,37 @@ footer {
 #add-new-product label 
 {
     width: 100%;
+}
+
+/* gallery styles */
+#gallery
+{
+    display: flex;
+    height: 600px;
+    gap: 10px;
+}
+
+#gallery > article:nth-of-type(1)
+{
+    position: relative;
+    top: 5%;
+    left: 5%;
+    width: 60%;
+    height: 90%;
+    border: 1px solid black;
+}
+
+#gallery > article:nth-of-type(2)
+{
+    position: relative;
+    top: 5%;
+    left: 5%;
+    width: 30%;
+    height: 90%;
+    border: 1px;
+}
+
+#gallery > article > div 
+{
+    border: 1px black solid;
 }

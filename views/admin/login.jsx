@@ -1,5 +1,5 @@
 const React = require('react');
-const DefaultAdmin = require('./defaultAdmin');
+const DefaultAdmin = require('./DefaultAdmin');
 
 class Login extends React.Component {
 

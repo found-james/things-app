@@ -1,5 +1,5 @@
 const React = require('react');
-const Default = require('./default.jsx');
+const Default = require('./Default.jsx');
 
 class Gallery extends React.Component {
     render() {
