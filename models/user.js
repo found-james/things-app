@@ -1,4 +1,4 @@
-const mongoose = require('./connections');
+const mongoose = require('../config/connections');
 
 const { Schema, model } = mongoose;
 

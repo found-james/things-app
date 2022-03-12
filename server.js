@@ -2,17 +2,22 @@ const dotEnv = require('dotenv').config();
 const express = require('express');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
-const ProductRouter = require('./controllers/products');
-const UserRouter = require('./controllers/user');
+const connectDB = require('./config/connections');
+const ProductRouter = require('./routes/productRoutes');
+const UserRouter = require('./routes/userRoutes');
+const { errorHandler } = require('./middleware/errorMiddlwware');
 const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
+connectDB();
 const app = express();
 app.engine('jsx', require('express-react-views').createEngine());
 app.set('view engine', 'jsx');
 
 app.use(morgan('tiny'));
+app.use(express.json());
+app.use(errorHandler);
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
@@ -27,6 +32,8 @@ app.use(
         resave: false
     })
 );
+
+
 
 
 app.use('/products', ProductRouter);

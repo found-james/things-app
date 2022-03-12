@@ -1,4 +1,4 @@
-const mongoose = require('../controllers/connections');
+const mongoose = require('../config/connections');
 
 const { Schema, model } = mongoose;
 
@@ -11,7 +11,11 @@ const productSchema = new Schema({
     sex: String,
     img: String,
     alt: String,
-    username: String
+    username: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
+    }
 });
 
 const Product = model('Product', productSchema);
