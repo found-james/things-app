@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../controllers/connections');
 
 const { Schema, model } = mongoose;
 
@@ -10,7 +10,8 @@ const productSchema = new Schema({
     grouping: String,
     sex: String,
     img: String,
-    alt: String
+    alt: String,
+    username: String
 });
 
 const Product = model('Product', productSchema);

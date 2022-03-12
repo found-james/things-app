@@ -30,7 +30,7 @@ class Default extends React.Component {
                     />
                     <link 
                         rel="stylesheet" 
-                        href="/css/app.css" 
+                        href="/css/styles.css" 
                     />
 
                 {/* Jquery */}
