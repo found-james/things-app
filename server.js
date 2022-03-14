@@ -1,14 +1,35 @@
+
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
+const MongoStore = require('connect-mongo');
+const methodOverride = require('method-override');
+const morgan = require('morgan');
+const session = require('express-session');
 const ProductRoutes = require('./routes/productRoutes');
 const UserRoutes = require('./routes/userRoutes');
 const HomeRoutes = require('./routes/homeRoute');
+const { middleware } = require('./utils/middleware');
 
 const app = express();
 app.engine('jsx', require('express-react-views').createEngine());
 app.set('view engine', 'jsx');
 
-middleware(app);
+app.use(morgan('tiny'));
+    app.use(express.urlencoded({extended: true}));
+    app.use(methodOverride('_method'));
+    app.use(express.static('public'));
+
+    app.use(
+        session({
+            secret: process.env.SECRET,
+            store: MongoStore.create(
+                { mongoUrl: process.env.DATABASE_URL }
+            ),
+            saveUninitialized: true,
+            resave: false
+        })
+    );
 
 app.use('/products', ProductRoutes);
 app.use('/user', UserRoutes);

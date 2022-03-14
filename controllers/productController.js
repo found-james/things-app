@@ -76,15 +76,20 @@ const editProduct = (req, res) => {
 
 //Show
 const showProduct = (req, res) => {
-    const id = req.params.id;
+    const { id } = req.params;
 
-    Product.findById(id)
-        .then( product => {
-            res.render('products/Show', { product });
-        })
-        .catch( error => {
-            res.json({ error });
-        });
+    if (req.session.loggedIn) {
+        Product.findById(id)
+            .then( product => {
+                res.render('products/Show', { product, session: req.session });
+            })
+            .catch( error => {
+                res.json({ error });
+            });
+    }
+    else {
+        res.redirect('user/login');
+    }
 };
 
 module.exports = {
