@@ -1,18 +1,13 @@
 const express = require('express');
 const Product = require('../models/productModel');
-const router = express.Router();
+const User = reuqire('../models/userModel');
 const asyncHandler = require('express-async-handler');
 // GET products in db
 // GET /api/proudcts
 const getProducts = asyncHandler( async (req, res) => {
     
-    Product.find({ username: req.session.username })
-        .then((products) => {                           //how to use async/await here
-            res.render('user/Index', { products });
-        })
-        .catch((error) => {
-            res.status(400).json({ error })
-    });
+    const products = await Product.find({ user: req.user.id })
+
 });
 
 
@@ -26,10 +21,22 @@ const newProduct = (req, res) => {
 const deleteProduct = asyncHandler( async (req, res) => {
     const product = await Product.findById(req.params.id);
     
-    if(!product) {
+    if (!product) {
         res.status(400)
         throw new Error('Product not found')
     } 
+    
+    const user = await User.findById(req.user.id);
+
+    if (!user) {
+        res.status(401)
+        throw new Error ('user  not found');
+    }
+
+    if (product.user.toString() !== user.id) {
+        res.status(401)
+        throw new Error('user not allowed to');
+    }
     
     await product.remove();
     
@@ -42,19 +49,31 @@ const deleteProduct = asyncHandler( async (req, res) => {
 const updateProduct = asyncHandler( async (req, res) => {
     const product = await Product.findById(req.params.id);
 
-    if(!product) {
+    if (!product) {
         res.status(400)
         throw new Error('Product not found')
     }
 
-    const updatedGoal = 
+    const user = await User.findById(req.user.id);
+
+    if (!user) {
+        res.status(401)
+        throw new Error ('user  not found');
+    }
+
+    if (product.user.toString() !== user.id) {
+        res.status(401)
+        throw new Error('user not allowed to');
+    }
+    
+    const updatedProduct = 
         await Product.findByIdAndUpdate(
                             req.params.id,
                             req.body, 
                             { new: true }
                             );
 
-    res.status(200).json(updatedGoal);
+    res.status(200).json(updatedProduct);
 
 });
 
@@ -109,9 +128,20 @@ module.exports =
     createProduct,
     editProduct,
     showProduct,
-    router
 }
 
+//**note these routes currently get data from db 
+//and use then to send fetched dta to templates
+//up to now routes are only working on backend
+
+// get product using .then () 
+    // Product.find({ username: req.session.username })
+        // .then((products) => {                           //how to use async/await here
+            // res.render('user/Index', { products });
+        // })
+        // .catch((error) => {
+            // res.status(400).json({ error })
+    // });
 // delete product using .then()
 
 // const { id } = req.params;

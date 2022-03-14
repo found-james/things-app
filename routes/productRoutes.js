@@ -10,20 +10,22 @@ const { getProducts,
         router
     } = require('../controllers/productController');
 
+const { protect } = require('../middleware/authMiddleware');
+
 router.route('/index')
-            .get(getProducts)
-            .post(createProduct);        // Index (READ), Create (CREATE) 
+            .get(protect, getProducts)
+            .post(protect, createProduct);        // Index (READ), Create (CREATE) 
 
 router.route('/new')
             .get(newProduct);          // New route (STATIC route)
 
 router.route('/:id/edit')
-            .get(editProduct);
+            .get(protect, editProduct);
 
 router.route('/:id')
-            .delete(deleteProduct)
-            .put(updateProduct)
-            .get(showProduct);        // Update (UPDATE), Delete (DESTROY)
+            .delete(protect, deleteProduct)
+            .put(protect, updateProduct)
+            .get(protect, showProduct);        // Update (UPDATE), Delete (DESTROY)
 
 router.use((req, res, next) => {
     if (req.session.loggedIn) {
