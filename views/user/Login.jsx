@@ -11,7 +11,7 @@ class Login extends React.Component {
                         <fieldset>
                             <legend>User Login</legend>
                             <label>
-                                USERNAME: <input type="text" 
+                                USERNAME: <input  type="text" 
                                                   name="username" 
                                                   required />
                           </label>

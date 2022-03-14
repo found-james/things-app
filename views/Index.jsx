@@ -1,8 +1,9 @@
 const React = require('react');
-const Default = require('../Default');
+const Default = require('./Default');
 
 class Index extends React.Component {
     render () {
+        const { products } = this.props;
         return (
             <Default>
                 <div> 
@@ -12,9 +13,8 @@ class Index extends React.Component {
                     <a href='/user/login'>
                         <button>login</button>
                     </a>
-                    <a href='/user/logout'>
-                        <button>logout</button>
-                    </a>
+
+            
                 </div>
             </Default>
         )

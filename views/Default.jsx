@@ -51,41 +51,6 @@ class Default extends React.Component {
                         {this.props.children}
                     </main>
                     <footer>
-                        <div>
-                        <h2>Pharetra pharetra</h2>
-                        <p>
-                            Velit laoreet id donec ultrices tincidunt. 
-                            Nunc vel risus commodo viverra maecenas accumsan. 
-                            Habitant morbi tristique senectus et netus et. 
-                            Diam vel quam elementum pulvinar.
-                        </p>
-                    </div>
-                    <div>
-                        <h2>Vel habitant</h2>
-                        <p>
-                            Et malesuada fames ac turpis egestas. 
-                            Elementum integer enim neque volutpat ac tincidunt. 
-                            Quam quisque id diam vel quam elementum pulvinar etiam. 
-                            Non tellus orci ac auctor augue. 
-                            Tellus in hac habitasse platea dictumst vestibulum rhoncus est.
-                        </p>
-                    </div>
-                    <div>
-                        <h2>Turpis massa</h2>
-                        <h5>
-                            Velit laoreet id donec ultrices tincidunt.   
-                        </h5>
-                        <h5>
-                            Nunc vel risus commodo viverra maecenas accumsan.  
-                        </h5>
-                        <h5>
-                            Habitant morbi tristique senectus et netus et.
-                        </h5>
-                        <span>
-                            <input placeholder="email here"></input>
-                            <button>submit</button>
-                        </span>
-                        </div>
                     </footer>
                 </body>
             </html>

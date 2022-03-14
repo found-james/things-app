@@ -20,6 +20,11 @@ class Index extends React.Component {
                         }
 
                     <a href='/products/new'><button>create new product</button></a>
+
+
+                                        <a href='/user/logout'>
+                        <button>logout</button>
+                    </a>
                 </div>
             </Default>
         )
@@ -27,3 +32,4 @@ class Index extends React.Component {
 }
 
 module.exports = Index;
+
