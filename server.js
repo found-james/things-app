@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const middleware = require('./middleware/middle ware');
+const middleware = require('./middleware/middleware');
 const ProductRouter = require('./routes/productRouter');
 const UserRouter = require('./routes/userRouter');
 
