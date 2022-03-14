@@ -3,18 +3,21 @@ const Product = require('../models/products');
 
 const router = express.Router();
 
-router.use((req, res, next) => {
-    if (req.session.loggedIn) {
-        next();
-    } 
-    else {
-        res.redirect('user/login');
-    }
-});
+// router.use((req, res, next) => {
+//     req.session.loggedIn ? next() : res.redirect('test1/login');
+    
+// });
+
+
+
 
 //Index --gallery
 router.get('/index', (req, res) => {
-    Product.find({ username: req.session.username })
+
+    console.log(req.session.username);
+    console.log(req.session);
+
+    Product.find({username: req.session.username })
         .then((products) => {                           //how to use async/await here
             res.render('user/Index', { products });
         })
@@ -55,14 +58,16 @@ router.put('products/:id', (req, res) => {
 });
 //Create
 router.post('/', (req, res) => {
+    console.log('we in here');
+    console.log(req.body);
     //massage data if need be
     Product.create(req.body)
-        .then( products => {
-            res.redirect('/products');
-        })
-        .catch( error => {
-            res.json({ error });
-        });
+        // .then( createdProduct => {
+        //     res.redirect(`/products/${createdProduct._id}`);
+        // })
+        // .catch( error => {
+        //     res.json({ error });
+        // });
 });
 
 //Edit
@@ -84,7 +89,7 @@ router.get('/:id', (req, res) => {
 
     Product.findById(id)
         .then( product => {
-            res.render('/products/Show', { product });
+            res.render('products/Show', { product });
         })
         .catch( error => {
             res.json({ error });

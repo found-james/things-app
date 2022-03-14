@@ -1,7 +1,7 @@
 const dotEnv = require('dotenv').config();
 const express = require('express');
 const methodOverride = require('method-override');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const ProductRouter = require('./controllers/products');
 const UserRouter = require('./controllers/user');
 const path = require('path');
@@ -12,7 +12,7 @@ const app = express();
 app.engine('jsx', require('express-react-views').createEngine());
 app.set('view engine', 'jsx');
 
-app.use(morgan('tiny'));
+// app.use(morgan('tiny'));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
@@ -34,6 +34,10 @@ app.use('/user', UserRouter);
 
 app.get("/", (req, res) => {  
     res.render('Index');
+});
+
+app.get("/product_index", (req, res) => {  
+    res.render('Default');
 });
 
 const PORT = process.env.PORT;

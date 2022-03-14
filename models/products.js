@@ -11,7 +11,11 @@ const productSchema = new Schema({
     sex: String,
     img: String,
     alt: String,
-    username: String
+    username: String,
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    }
 });
 
 const Product = model('Product', productSchema);

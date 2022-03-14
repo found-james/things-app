@@ -36,7 +36,7 @@ router.post('/login', async (req, res) => {
             if (user) {
                 const result = await bcrypt.compare(password, user.password);
                 if (result) {
-                    res.redirect('/products');
+                    res.redirect('/products/index');
                 } 
                 else {
                     res.json({ error: 'password doesnt match' });

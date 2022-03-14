@@ -3,6 +3,7 @@ const Default = require('../Default');
 
 class Show extends React.Component {
     render () {
+        const { product } = this.props;
         return (
             <Default>
                 <div>
