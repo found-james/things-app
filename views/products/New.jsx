@@ -17,49 +17,56 @@ class New extends React.Component {
                         </div>
                         <div className="form-group">
                             <label>
-                                retail price: <input type="text" 
+                                retail price: <input name="price"
+                                                     type="text" 
                                                      className="form-control" 
                                                      placeholder="cost inclduing currency"/>
                             </label>
                         </div>
                         <div className="form-group">
                             <label>
-                                size: <input type="text" 
+                                size: <input name="size"
+                                             type="text" 
                                              className="form-control" 
                                              placeholder="XS, small, medium, large, XL"/>
                             </label>
                         </div>
                         <div className="form-group">
                             <label>
-                                description: <input type="text" 
+                                description: <input name="description"
+                                                    type="text" 
                                                     className="form-control" 
                                                     placeholder="outerwear, top, bottom, footwear, accessories"/>
                             </label>
                         </div>
                         <div className="form-group">
                             <label>
-                                grouping: <input type="text" 
+                                grouping: <input name="grouping"
+                                                 type="text" 
                                                  className="form-control" 
                                                  placeholder="outerwear, top, bottom, footwear, accessories"/>
                             </label>
                         </div>
                         <div className="form-group">
                             <label>
-                                sex: <input type="text" 
-                                                 className="form-control" 
-                                                 placeholder="male female"/>
+                                sex: <input name="sex"
+                                            type="text" 
+                                            className="form-control" 
+                                            placeholder="male female"/>
                             </label>
                         </div>
                         <div>
                             <label>
-                                image: <input type="text" 
+                                image: <input name="img"
+                                              type="text" 
                                               className="form-control" 
                                               placeholder="insert url here"/>
                             </label>
                         </div>
                         <div className="form-group">
                             <label>
-                                alt: <input type="text" 
+                                alt: <input name="alt"
+                                            type="text" 
                                             className="form-control" 
                                             placeholder="description of image"/>
                             </label>

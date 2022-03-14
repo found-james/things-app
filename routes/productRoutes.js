@@ -1,35 +1,31 @@
-// const express = require('express');
+const express = require('express');
+const { displayAllProducts,
+        renderNew,
+        deleteProduct,
+        updateProduct,
+        createProduct,
+        editProduct,
+        showProduct
+} = require('../controllers/productController');
 
-// const { getProducts, 
-//         newProduct, 
-//         deleteProduct,
-//         updateProduct,
-//         createProduct, 
-//         editProduct, 
-//         showProduct,
-//         router
-//     } = require('../controllers/productController');
+const router = express.Router();
 
-// const { protect } = require('../middleware/authMiddleware');
+router.use((req, res, next) => {
+    req.session.loggedIn ? next() : res.redirect('/');
+    
+});
 
-// router.route('/index')
-//             .get(protect, getProducts)
-//             .post(protect, createProduct);        // Index (READ), Create (CREATE) 
+router.route('/')
+            .get(displayAllProducts)
+            .post(createProduct); 
 
-// router.route('/new')
-//             .get(newProduct);          // New route (STATIC route)
+router.get('/new', renderNew);
 
-// router.route('/:id/edit')
-//             .get(protect, editProduct);
+router.get('/:id/edit', editProduct);
 
-// router.route('/:id')
-//             .delete(protect, deleteProduct)
-//             .put(protect, updateProduct)
-//             .get(protect, showProduct);        // Update (UPDATE), Delete (DESTROY)
+router.route('/:id')
+            .delete(deleteProduct)
+            .put(updateProduct)
+            .get(showProduct);
 
-// router
-//     .use((req, res, next) => req.session.loggedIn ? next() 
-//                                                   : res.redirect('user/login') 
-//             )
-
-// module.exports = router;
+module.exports = router;

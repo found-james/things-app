@@ -1,44 +1,18 @@
-const dotEnv = require('dotenv').config();
 const express = require('express');
-const methodOverride = require('method-override');
-// const morgan = require('morgan');
-const ProductRouter = require('./controllers/products');
-const UserRouter = require('./controllers/user');
 const path = require('path');
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const ProductRoutes = require('./routes/productRoutes');
+const UserRoutes = require('./routes/userRoutes');
+const HomeRoutes = require('./routes/homeRoute');
 
 const app = express();
 app.engine('jsx', require('express-react-views').createEngine());
 app.set('view engine', 'jsx');
 
-// app.use(morgan('tiny'));
-app.use(express.urlencoded({extended: true}));
-app.use(methodOverride('_method'));
-app.use(express.static('public'));
+middleware(app);
 
-app.use(
-    session({
-        secret: process.env.SECRET,
-        store: MongoStore.create(
-            { mongoUrl: process.env.DATABASE_URL }
-        ),
-        saveUninitialized: true,
-        resave: false
-    })
-);
-
-
-app.use('/products', ProductRouter);
-app.use('/user', UserRouter);
-
-app.get("/", (req, res) => {  
-    res.render('Index');
-});
-
-app.get("/product_index", (req, res) => {  
-    res.render('Default');
-});
+app.use('/products', ProductRoutes);
+app.use('/user', UserRoutes);
+app.use('/', HomeRoutes);
 
 const PORT = process.env.PORT;
 app.listen(PORT);

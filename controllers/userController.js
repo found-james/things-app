@@ -1,14 +1,11 @@
-const express = require('express');
-const User = require('../models/user');
+const User = require('../models/userSchema');
 const bcrypt = require('bcryptjs');
 
-const router = express.Router();
-
-router.get('/signup', (req, res) => {
+const renderSignUp = (req, res) => {
     res.render('user/Signup');
-});
+};
 
-router.post('/signup', async (req, res) => {
+const createUser = async (req, res) => {
     req.body.password = 
         await bcrypt.hash(
             req.body.password, 
@@ -22,13 +19,13 @@ router.post('/signup', async (req, res) => {
         .catch( error => {
             res.json({ error });
         });
-});
+};
 
-router.get('/login', (req, res) => {
+const renderLogin = (req, res) => {
     res.render('user/Login');
-});
+};
 
-router.post('/login', async (req, res) => {
+const createSession = async (req, res) => {
     const { username, password } = req.body;
 
     User.findOne({ username })
@@ -36,7 +33,10 @@ router.post('/login', async (req, res) => {
             if (user) {
                 const result = await bcrypt.compare(password, user.password);
                 if (result) {
-                    res.redirect('/products/index');
+
+                    req.session.username = username;
+                    req.session.loggedIn = true;
+                    res.redirect('/products');
                 } 
                 else {
                     res.json({ error: 'password doesnt match' });
@@ -50,12 +50,18 @@ router.post('/login', async (req, res) => {
             res.json({ error });
         });
 
-});
+};
 
-router.get('/logout', (req, res) => {
+const endSession = (req, res) => {
     req.session.destroy( err => {
             res.redirect('/');
         });
-});
+}
 
-module.exports = router;
+module.exports = {
+    renderSignUp,
+    renderLogin,
+    createUser,
+    createSession,
+    endSession
+}

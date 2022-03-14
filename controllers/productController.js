@@ -1,40 +1,29 @@
 const express = require('express');
-const Product = require('../models/products');
-
-const router = express.Router();
-
-// router.use((req, res, next) => {
-//     req.session.loggedIn ? next() : res.redirect('test1/login');
-    
-// });
-
-
-
+const Product = require('../models/productSchema');
 
 //Index --gallery
-router.get('/index', (req, res) => {
+const displayAllProducts = (req, res) => {
 
     console.log(req.session.username);
     console.log(req.session);
 
     Product.find({username: req.session.username })
         .then((products) => {                           //how to use async/await here
-            res.render('user/Index', { products });
+            res.render('products/Index', { products });
         })
         .catch((error) => {
             res.status(400).json({ error })
     });
-});
+};
 
 //New 
-router.get('/new', (req, res) => {
+const renderNew = (req, res) => {
     res.render('products/New');
-});
+};
 
-module.exports = router;
 
 //Delete
-router.delete('/:id', (req, res) => {
+const deleteProduct = (req, res) => {
     const { id } = req.params;
     Product.findByIdAndDelete(id)
         .then( product => {
@@ -43,10 +32,10 @@ router.delete('/:id', (req, res) => {
         .catch( error => {
             res.json({ error });
         });
-});
+};
 
 //Update
-router.put('products/:id', (req, res) => {
+const updateProduct = (req, res) => {
     const { id } = req.params;
     Product.findByIdAndUpdate(id, req.body, { new: true })
         .then( product => {
@@ -55,23 +44,25 @@ router.put('products/:id', (req, res) => {
         .catch( error => {
             res.json({ error });
         });
-});
+};
 //Create
-router.post('/', (req, res) => {
+const createProduct = (req, res) => {
     console.log('we in here');
     console.log(req.body);
+
+    req.body.username = req.session.username;
     //massage data if need be
     Product.create(req.body)
-        // .then( createdProduct => {
-        //     res.redirect(`/products/${createdProduct._id}`);
-        // })
-        // .catch( error => {
-        //     res.json({ error });
-        // });
-});
+        .then( createdProduct => {
+            res.redirect(`/products/${createdProduct._id}`);
+        })
+        .catch( error => {
+            res.json({ error });
+        });
+};
 
 //Edit
-router.get('/:id/edit', (req, res) => {
+const editProduct = (req, res) => {
     const { id } = req.params;
 
     Product.findById(id) 
@@ -81,10 +72,10 @@ router.get('/:id/edit', (req, res) => {
         .catch( error => {
             res.json({ error });
         });
-});
+};
 
 //Show
-router.get('/:id', (req, res) => {
+const showProduct = (req, res) => {
     const id = req.params.id;
 
     Product.findById(id)
@@ -94,6 +85,14 @@ router.get('/:id', (req, res) => {
         .catch( error => {
             res.json({ error });
         });
-});
+};
 
-module.exports = router;
+module.exports = {
+    displayAllProducts,
+    renderNew,
+    deleteProduct,
+    editProduct,
+    updateProduct,
+    createProduct,
+    showProduct,
+}

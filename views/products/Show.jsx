@@ -11,10 +11,12 @@ class Show extends React.Component {
                         <h2>
                             {product.name} <br/>    
                         </h2>
-                        <form action={ `/products/${ product._id }?_method=DELETE`} method='POST'>
-                            <a href={`/products/${ product._id }/edit`}>
+                        <img src={product.img}></img>
+                        <a href={`/products/${ product._id }/edit`}>
                                 <button>edit</button>                           
                             </a>
+                        <form action={ `/products/${ product._id }?_method=DELETE`} method='POST'>
+                            <button type="submit">Delete</button>
                         </form>
 
                         <a href='/products'>

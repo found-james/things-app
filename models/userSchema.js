@@ -1,4 +1,4 @@
-const mongoose = require('../controllers/connections');
+const mongoose = require('../config/connections');
 
 const { Schema, model } = mongoose;
 
@@ -13,5 +13,9 @@ const userSchema = new Schema({
 });
 
 const User = model('User', userSchema);
-
 module.exports = User;
+
+// import mongoose module from location where it was defined
+// unpack objects {Schema and model} from mongoose ODM 
+// define userSchema
+// use model object to define structure of documents
