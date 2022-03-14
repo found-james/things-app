@@ -2,7 +2,7 @@
   "name": "3_store",
   "version": "1.0.0",
   "description": "![test](assets/1_landing_page.png)",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",

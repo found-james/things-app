@@ -27,14 +27,10 @@ router.route('/:id')
             .put(protect, updateProduct)
             .get(protect, showProduct);        // Update (UPDATE), Delete (DESTROY)
 
-router.use((req, res, next) => {
-    if (req.session.loggedIn) {
-        next();
-    } 
-    else {
-        res.redirect('user/login');
-    }
-});
+router
+    .use((req, res, next) => req.session.loggedIn ? next() 
+                                                  : res.redirect('user/login') 
+            )
 
 module.exports = router;
 
