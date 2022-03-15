@@ -13,7 +13,7 @@ Create an account by following the [link](https://store-with-things.herokuapp.co
   
 Once signed, in click the create new product button. Complete the required fields. Thats it!  
 
-An invetory of items is created for your use.  
+An invetory of items is created for you.  
 
 ### <u> Upcoming Features </u>
 - JSON web token authentication at login. Find out more about [JWT authentication](https://jwt.io/introduction).  
