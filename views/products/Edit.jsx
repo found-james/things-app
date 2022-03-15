@@ -7,8 +7,12 @@ class Edit extends React.Component {
             <Default>
 
                 <section id="add-new-product">
-                    <h2>Edit</h2>
+                    <a href='/products'>
+                        <button>back to main</button>
+                    </a>
+                    
                     <form action={`/products/${product._id}?_method=PUT`} method="POST">
+                        <h2>Edit</h2>    
                         <div className="form-group">
                             <label>
                                 name: <input name="name"
@@ -81,11 +85,9 @@ class Edit extends React.Component {
                                             defaultValue={product.alt}/>
                             </label>
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit">Submit</button>
                     </form>
-                                        <a href='/products'>
-                            <button>back to main</button>
-                        </a>
+                            
                 </section>
             </Default>
         )

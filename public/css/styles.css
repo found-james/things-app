@@ -28,6 +28,12 @@ footer
 {
     position: relative;
     left: 20px;
+    top: 20px;
+}
+#add-new-product button:nth-of-type(1) 
+{
+    position: relative;
+    left: 20px;
 }
 /* Default styles
 header 

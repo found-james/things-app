@@ -6,6 +6,10 @@ class New extends React.Component {
         return (
             <Default>
                 <section id="add-new-product">
+                <a href='/products'>
+                            <button>back to main</button>
+                        </a>
+                    
                     <form action="/products/" method="POST">
                         <div className="form-group">
                             <label>
@@ -71,7 +75,7 @@ class New extends React.Component {
                                             placeholder="description of image"/>
                             </label>
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit">Submit</button>
                     </form>
                 </section>
             </Default>
