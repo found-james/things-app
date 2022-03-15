@@ -16,16 +16,19 @@ form
 width: 100%;
 }
 
-
-footer {
+footer 
+{
     background-color: #B2AC88; 
     height: 400px;
     display: flex;
     color:#FFF5EE;
 }
 
-
-
+#add-new-product > form 
+{
+    position: relative;
+    left: 20px;
+}
 /* Default styles
 header 
 {
